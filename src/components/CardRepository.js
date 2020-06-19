@@ -18,11 +18,12 @@ const CardRepository = ({ repository, addLike }) => {
           testID={`repository-likes-${repository.id}`}
         >
           {repository.likes} curtidas
-            </Text>
+        </Text>
       </View>
 
       <TouchableOpacity
         style={styles.button}
+        activeOpacity={0.8}
         onPress={() => addLike(repository.id)}
         testID={`like-button-${repository.id}`}
       >
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     backgroundColor: "#fff",
     padding: 20,
+    borderRadius: 10,
   },
   repository: {
     fontSize: 32,
@@ -60,16 +62,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     marginRight: 10,
+    opacity: 0.6
   },
   button: {
     marginTop: 10,
   },
   buttonText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
     marginRight: 10,
     color: "#fff",
     backgroundColor: "#7159c1",
     padding: 15,
+    borderRadius: 5,
+    textAlign: 'center',
   },
 });
