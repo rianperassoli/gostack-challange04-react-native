@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, } from "react-native"
+import TagTech from './TagTech'
 
 const CardRepository = ({ repository, addLike }) => {
 
@@ -8,12 +9,7 @@ const CardRepository = ({ repository, addLike }) => {
       <Text style={styles.repository}>{repository.title}</Text>
 
       <View style={styles.techsContainer}>
-        <Text style={styles.tech}>
-          ReactJS
-            </Text>
-        <Text style={styles.tech}>
-          Node.js
-            </Text>
+        {repository.techs.map((tech, index) => <TagTech key={index} tech={tech} />)}
       </View>
 
       <View style={styles.likesContainer}>
@@ -54,15 +50,6 @@ const styles = StyleSheet.create({
   techsContainer: {
     flexDirection: "row",
     marginTop: 10,
-  },
-  tech: {
-    fontSize: 12,
-    fontWeight: "bold",
-    marginRight: 10,
-    backgroundColor: "#04d361",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    color: "#fff",
   },
   likesContainer: {
     marginTop: 15,
